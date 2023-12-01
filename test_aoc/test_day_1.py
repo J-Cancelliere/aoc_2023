@@ -40,20 +40,20 @@ def test_sum_function():
 def test_convert_many_words_to_numeric():
     ''' Given a string 4nineeightseven2
     When passed to the conversion function
-    Then it returns 49872'''
+    Then it returns 4n9inee8ights7even2'''
     result = day_1.convert_words_to_numeric("4nineeightseven2")
-    assert result == "49872"
+    assert result == "4n9inee8ights7even2"
 
 def test_convert_2_words_to_numeric():
     ''' Given a string abcone2threexyz
     When passed to the conversion function
-    Then it returns abc123xyz'''
+    Then it returns abco1ne2t3hreexyz'''
     result = day_1.convert_words_to_numeric("abcone2threexyz")
-    assert result == "abc123xyz"
+    assert result == "abco1ne2t3hreexyz"
 
 def test_convert_1_word_to_numeric():
     ''' Given a string 7pqrstsixteen
     When passed to the conversion function
-    Then it returns 7pqrst6teen'''
+    Then it returns 7pqrsts6ixteen'''
     result = day_1.convert_words_to_numeric("7pqrstsixteen")
-    assert result == "7pqrst6teen"
+    assert result == "7pqrsts6ixteen"
