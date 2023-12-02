@@ -41,11 +41,20 @@ def convert_keys_to_int(data_dict):
         new_dict[new_key] = data_dict[game]
     return new_dict
 
-def find_min_values():
-    pass
+def find_min_values(game_list):
+    minimum_cubes = {}
+    for game in game_list:
+        if not minimum_cubes.get(game[1]):
+            minimum_cubes[game[1]] = game[0]
+        elif minimum_cubes.get(game[1]) > game[0]:
+            continue
+        else:
+            minimum_cubes[game[1]] = game[0]
+    return minimum_cubes
 
-def multiply_cubes():
-    pass
+def multiply_cubes(part_2_mins):
+    numbers = list(part_2_mins.values())
+    return numbers[0] * numbers[1] * numbers[2]
 
 def main():
     data = retrieve_challenge_input()
@@ -53,11 +62,16 @@ def main():
     number_dict = convert_keys_to_int(data_dict)
     results = [verify_game_part_1(game) for game in number_dict.values()]
     results_dict = dict(zip(number_dict.keys(),results))
-    total = 0
+    total_part1 = 0
     for k in results_dict.keys():
         if results_dict[k] == True:
-            total += k
-    return total
+            total_part1 += k
+    print(f"Part 1 answer: {total_part1}")
+    part_2_mins = [find_min_values(game) for game in data_dict.values()]
+    part_2_products = [multiply_cubes(cubes) for cubes in part_2_mins]
+    total_part2 = sum(part_2_products)
+    print(f"Part 2 answer: {total_part2}")
+
 
 if __name__ == '__main__':
-    print(main())
+    main()
