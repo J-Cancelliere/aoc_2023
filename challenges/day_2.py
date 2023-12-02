@@ -41,6 +41,12 @@ def convert_keys_to_int(data_dict):
         new_dict[new_key] = data_dict[game]
     return new_dict
 
+def find_min_values():
+    pass
+
+def multiply_cubes():
+    pass
+
 def main():
     data = retrieve_challenge_input()
     data_dict = parse_data_part_1(data)

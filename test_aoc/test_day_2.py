@@ -31,3 +31,20 @@ def test_failed_game():
     Then the function returns False'''
     result = day_2.verify_game_part_1(failed_list)
     assert result == False
+
+# Part 2 tests
+def test_minimum_id():
+    '''Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+    When searching for the min values
+    return a dict: {"blue": 6, "red": 4, "green": 2}'''
+    result = day_2.find_min_values(successful_list)
+    assert result["blue"] == 6
+    assert result["red"] == 4
+    assert result["green"] == 2
+
+def test_multiplier():
+    '''Given an input of 6 blue, 4 red, and 2 green
+    When multiplying all three numbers
+    Return 48'''
+    result = day_2.multiply_cubes({"blue": 6, "red": 4, "green": 2})
+    assert result == 48
