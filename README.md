@@ -32,21 +32,32 @@
 </summary>
 <p></p>
 <p><strong>Part 1:</strong> I'm up early today (like, really early). Early enough to start today's puzzle as soon as it's released. Let's do this! After reading the instructions and peeking at the input data, I breath a sigh of relief. This is looking a bit easier compared to yesterday's wonky-words-number-nonsense. </p>
-
 <p>I write my tests and my code. I'm using a dictionary to map the colors to the limits provided in the instructions, and I parse the input data into lists. I go over each list and compare the values with the mapped limits and calcualte the count of possible games. Everything looks good and I submit my answer... oh dear, I've already failed my first submission.</p>
-
-<p>I take another look at the instructions. Whoops! I've calculated the <em>count of games</em>, but the puzzle instruction is asking for the <em>sum of the game IDs</em> (sigh). I'm up too early and am too tired; I didn't read through all the instructions... After some reworking of my dictionary keys (*cought* and my unit tests *cough*), my second submission is successful. Phew!</p>
-
+<p>I take another look at the instructions. Whoops! I've calculated the <em>count of games</em>, but the puzzle instruction is asking for the <em>sum of the game IDs</em> (sigh). I'm up too early and am too tired; I didn't read through all the instructions... After some reworking of my dictionary keys (*cough* and my unit tests *cough*), my second submission is successful. Phew!</p>
 <p><strong>Part 2:</strong> Finding the lowest possible values in the games for each color is easy enough to solve (after <em>triple checking</em> the instructions for part 2). I set about finding the highest value in my lists from part 1. Once I have a dicitonary for each color containing the numbers, I code another function to multiply the three numbers together. I apply these functions to the entire input list and sum the products. Success!</p>
-
 <p>Day 2 is done and dusted. What did I learn today? <strong>Read the instructions</strong>! And maybe have a coffee before trying to start coding at 5:00 AM. Also, don't forget to <strong>read the instructions</strong>!</p>
 </details>
 
+<details>
+<summary>
+<strong>Day 3</strong>: Who needs a weekend?
+</summary>
+<p></p>
+<p><strong>Part 1:</strong> Today's puzzle was a tough one, and we're only on day 3! I spent far too much time trying to figure this out and had to walk away and come back multiple times to avoid giving up entirely.</p>
+<p>My first idea was to create a dictionary containing each line with the row index as the key. I then wrote some for loops to search the sides, above, and below numbers. I encountered a lot of issues with indices being out of range (<em>literal</em> edge cases). After a failed first submission, I change strategy: extract a list of numbers from the line first. Then I find the index of each number. I expand the search field from that index to include left, right, above, and below. I also have to figure how to deal with edge cases again. I fail submission yet again.
+</p>
+<p>Turns out there's a problem is with <code>str.find()</code> (have I not learned my lesson in day 1?) I check for duplicates in the number list and work around the issue using <code>str.rfind()</code>. And my submission fails <em>again</em>! Time to step away from the computer and going out for a bit.
+</p>
+<p> I'm back from brunch and a bit more motivated. I've decided to scrap everything and start over, working with numpy this time. I split every character out into a list. This is used to create a numpy array (I've also added a row of padding along all the sides; edge cases no more!). I write a function to create a "window" surrounding each number. Once all the windows are created, I flatten each array and look for any punctuation. Finally succeeded on this one! Though I'm dreading part 2 now.</p>
+<p><strong>Part 2:</strong> At this point in the day. My brain is fried. I try working with my existing code to come up with an easy solution, but it's getting late and I think I've sacrificed enough of my sunday to AOC.</p>
+<p>After several feeble attemps with no tangible results. I go searching in the AOC subreddit for inspration. I find another python solution and cobble it into my module. If the main reason for doing AOC is to learn, I think part of that process is learning to read and implement other people's code as well. You can't always have all the answers! Here's to hoping for a more relaxed Monday puzzle.</p>
+</details>
 
 <!--
 -- New day template --
 <details>
 <summary>
+<p></p>
 <strong>Day {n}</strong>: {headline}
 </summary>
 <p><strong>Part 1:</strong></p>
