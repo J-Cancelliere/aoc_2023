@@ -38,6 +38,9 @@ def get_point_value(card):
                 break
     return (winners,scratches,value)
 
+def get_copy_counts():
+    pass
+
 def main():
     data = retrieve_puzzle_input()
     cards_dict = process_input(data)
