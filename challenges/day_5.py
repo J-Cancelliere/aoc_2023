@@ -74,19 +74,49 @@ def convert_number(source_number,mapping):
         return source_number
     if source_number >= source:
         source_diff = source_number - source
-        if source_diff >= range_len:
+        if source_diff <= range_len:
             return source_diff + destination
+        else:
+            return source_number
 
-def catalogue_seed_data(seed_list):
-    pass
+def catalogue_seed_data(seed_list, map_dict):
+    '''Creates a dict for each seed by searching all mappings
+    - Key is the seed ID
+    - Value is a tuple containing the 7 growing values'''
+    seed_dict = {}
+    for seed in seed_list:
+        print(f"\nCataloguing seed ID {seed}")
+        running_num = seed
+        grow_vals = []
+        for key in map_dict.keys():
+            map_list = map_dict[key]
+            for map in map_list:
+                new_num = convert_number(running_num,map)
+                if new_num != running_num:
+                    grow_vals.append(new_num)
+                    running_num = new_num
+                    print(f"\t{key} value is {running_num}")
+                    break
+                if map == map_list[-1]:
+                    grow_vals.append(new_num)
+                    print(f"\t{key} value is {running_num}")
+        seed_dict[seed] = grow_vals
+    return seed_dict
 
-def get_lowest_loc():
-    pass
+def get_lowest_loc(seed_catalogue):
+    lowest_value = 0
+    for seed in seed_catalogue.keys():
+        if lowest_value == 0:
+            lowest_value = seed_catalogue[seed][-1]
+        if lowest_value > seed_catalogue[seed][-1]:
+            lowest_value = seed_catalogue[seed][-1]
+    return lowest_value
 
 def main():
     puzzle_input = retrieve_puzzle_input()
     seeds, maps = parse_puzzle_input(puzzle_input)
-    return convert_number(seeds[0],maps["seed-to-soil"][2])
+    seed_catalogue = catalogue_seed_data(seeds,maps)
+    return get_lowest_loc(seed_catalogue)
 
 if __name__ == "__main__":
     print(main())

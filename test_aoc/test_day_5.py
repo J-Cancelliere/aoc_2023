@@ -72,10 +72,10 @@ def test_within_range_mapping():
     result = day_5.convert_number(81,(18, 25, 70))
     assert result == 74
 
-seed_catalogue = day_5.catalogue_seed_data(test_seeds)
-
 def test_lowest_loc():
     # given the test input above
     # when searching the lowest location number
     # return 35
+    seed_catalogue = day_5.catalogue_seed_data(test_seeds,test_input_parsed)
     result = day_5.get_lowest_loc(seed_catalogue)
+    assert result == 35
