@@ -42,7 +42,8 @@ def get_point_value(card):
 
 def get_copy_counts(card_dict):
     '''TODO: The while loop in the second half of this function is very
-    comutationally expensive (~10 minutes). Consider reconfiguirng to run faster
+    comutationally expensive (~15 seconds). Consider reconfiguirng to run
+    faster.
     Iterates over the dictionary once to count the number of matches
     Iterates over the dictionary a second time to update the number of copies
     for each card.
@@ -65,6 +66,7 @@ def get_copy_counts(card_dict):
         line = card_dict_updated[i]
         winners, scratches, value, matches, copies = line
         copy_looper = copies
+        print(f"Updating card number {i}")
         while copy_looper > 0:
             for j in range(1,matches+1):
                 # convert tuple to list for reassignment
