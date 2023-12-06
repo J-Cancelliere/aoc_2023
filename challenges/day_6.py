@@ -1,19 +1,51 @@
-from aocd import Puzzle
+from aocd.models import Puzzle
+import regex as re
 
 def retrieve_puzzle_data():
-    pass
+    puzzle = Puzzle(year=2023, day=6)
+    return puzzle.input_data
 
-def parse_puzzle_input():
-    pass
+def parse_puzzle_input(puzzle_input):
+    input_dict = {}
+    for line in puzzle_input.split("\n"):
+        num_pattern = "\d{1,4}"
+        key_index = line.find(" ")
+        new_key = line[:key_index-1]
+        numbers = re.findall(num_pattern, line)
+        input_dict[new_key] = [int(num) for num in numbers]
+    return input_dict
 
-def calc_ways_to_win():
-    pass
+def calc_ways_to_win(race):
+    # search up
+    win_lower = 0
+    for i in range(1,race[0]):
+        time_left = race[0] - i
+        distance = i * time_left
+        if distance > race[1]:
+            win_lower = i
+            break
+    # search down
+    win_upper = 0
+    for i in reversed(range(1,race[0])):
+        time_left = race[0] - i
+        distance = i * time_left
+        if distance > race[1]:
+            win_upper = i + 1
+            break
+    return win_upper - win_lower
 
-def final_product():
-    pass
+def final_product(input_dict):
+    final_product = 1
+    for race in zip(input_dict["Time"],input_dict["Distance"]):
+        multiplier = calc_ways_to_win(race)
+        final_product *= multiplier
+    return final_product
 
 def main():
-    pass
+    puzzle_input = retrieve_puzzle_data()
+    input_dict = parse_puzzle_input(puzzle_input)
+    part_1 = final_product(input_dict)
+    print(f"Answer to part 1: {part_1}")
 
 if __name__ == "__main__":
     print(main())
