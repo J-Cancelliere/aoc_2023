@@ -1,5 +1,6 @@
 from challenges import day_6
 
+# part 1 tests
 test_input="""Time:      7  15   30
 Distance:  9  40  200"""
 
@@ -21,3 +22,5 @@ def test_final_product():
     test_parsed = day_6.parse_puzzle_input(test_input)
     result = day_6.final_product(test_parsed)
     assert result == 288
+
+# part 2 tests

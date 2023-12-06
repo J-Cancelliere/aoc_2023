@@ -5,14 +5,20 @@ def retrieve_puzzle_data():
     puzzle = Puzzle(year=2023, day=6)
     return puzzle.input_data
 
-def parse_puzzle_input(puzzle_input):
+def parse_puzzle_input(puzzle_input, bad_kern=False):
     input_dict = {}
     for line in puzzle_input.split("\n"):
         num_pattern = "\d{1,4}"
         key_index = line.find(" ")
         new_key = line[:key_index-1]
         numbers = re.findall(num_pattern, line)
+        if bad_kern:
+            numbers = "".join(numbers)
+            input_dict[new_key] = int(numbers)
+            continue
         input_dict[new_key] = [int(num) for num in numbers]
+    if bad_kern:
+        return input_dict.values()
     return input_dict
 
 def calc_ways_to_win(race):
@@ -46,6 +52,10 @@ def main():
     input_dict = parse_puzzle_input(puzzle_input)
     part_1 = final_product(input_dict)
     print(f"Answer to part 1: {part_1}")
+    part_2_input = tuple(parse_puzzle_input(puzzle_input, bad_kern=True))
+    part_2 = calc_ways_to_win(part_2_input)
+    print(f"Answer to part 2: {part_2}")
+
 
 if __name__ == "__main__":
     print(main())
