@@ -15,8 +15,8 @@
 <strong>Day 1</strong>: This isn't so hard... D'oh!
 </summary>
 <p></p>
-<p><strong>Part 1:</strong> Started out strong for part 1 of this puzzle! I coded my tests and functions, then got the right answer on my first attempt. My strategy was to iterate over each string both forwards and backwards simultaneously and record the first encountered number. This worked perfectly. What a great beginning to AOC! I'm sure part 2 will be just as easy, fun, and fulfilling...</p>
-<p><strong>Part 2:</strong> <em>"Oh look at that! Some of the numbers are spelled out as words. No worries, <code>string.replace()</code> to the rescue! Perfect, all my tests are passing. Time to submit my answer and get my second star..."</em>
+<p><strong>⭐ Part 1:</strong> Started out strong for part 1 of this puzzle! I coded my tests and functions, then got the right answer on my first attempt. My strategy was to iterate over each string both forwards and backwards simultaneously and record the first encountered number. This worked perfectly. What a great beginning to AOC! I'm sure part 2 will be just as easy, fun, and fulfilling...</p>
+<p><strong>⭐ Part 2:</strong> <em>"Oh look at that! Some of the numbers are spelled out as words. No worries, <code>string.replace()</code> to the rescue! Perfect, all my tests are passing. Time to submit my answer and get my second star..."</em>
 <ol>
 <li><strong>First attempt</strong>: I map all the words to digits and naively use <code>str.replace()</code> to modify the string before reusing my funtion for part 1. Submission failed. I do some searching and realize it's due to edge cases in the input ("oneight", "sevenine", etc)</li>
 <li><strong>Second attempt</strong>: Okay, so <code>str.replace()</code> is a bust. Let's use <code>str.find()</code> to get the index of the words and amend the strings this way. I add the digit to the beginning of the word in the string, but this doesn't fix all the issues (think "on8eight" or "seve9nine"). Failed again.</li>
@@ -31,10 +31,10 @@
 <strong>Day 2</strong>: Early morning cubes
 </summary>
 <p></p>
-<p><strong>Part 1:</strong> I'm up early today (like, really early). Early enough to start today's puzzle as soon as it's released. Let's do this! After reading the instructions and peeking at the input data, I breath a sigh of relief. This is looking a bit easier compared to yesterday's wonky-words-number-nonsense. </p>
+<p><strong>⭐ Part 1:</strong> I'm up early today (like, really early). Early enough to start today's puzzle as soon as it's released. Let's do this! After reading the instructions and peeking at the input data, I breath a sigh of relief. This is looking a bit easier compared to yesterday's wonky-words-number-nonsense. </p>
 <p>I write my tests and my code. I'm using a dictionary to map the colors to the limits provided in the instructions, and I parse the input data into lists. I go over each list and compare the values with the mapped limits and calcualte the count of possible games. Everything looks good and I submit my answer... oh dear, I've already failed my first submission.</p>
 <p>I take another look at the instructions. Whoops! I've calculated the <em>count of games</em>, but the puzzle instruction is asking for the <em>sum of the game IDs</em> (sigh). I'm up too early and am too tired; I didn't read through all the instructions... After some reworking of my dictionary keys (*cough* and my unit tests *cough*), my second submission is successful. Phew!</p>
-<p><strong>Part 2:</strong> Finding the lowest possible values in the games for each color is easy enough to solve (after <em>triple checking</em> the instructions for part 2). I set about finding the highest value in my lists from part 1. Once I have a dicitonary for each color containing the numbers, I code another function to multiply the three numbers together. I apply these functions to the entire input list and sum the products. Success!</p>
+<p><strong>⭐ Part 2:</strong> Finding the lowest possible values in the games for each color is easy enough to solve (after <em>triple checking</em> the instructions for part 2). I set about finding the highest value in my lists from part 1. Once I have a dicitonary for each color containing the numbers, I code another function to multiply the three numbers together. I apply these functions to the entire input list and sum the products. Success!</p>
 <p>Day 2 is done and dusted. What did I learn today? <strong>Read the instructions</strong>! And maybe have a coffee before trying to start coding at 5:00 AM. Also, don't forget to <strong>read the instructions</strong>!</p>
 </details>
 
@@ -43,23 +43,42 @@
 <strong>Day 3</strong>: Who needs a weekend?
 </summary>
 <p></p>
-<p><strong>Part 1:</strong> Today's puzzle was a tough one, and we're only on day 3! I spent far too much time trying to figure this out and had to walk away and come back multiple times to avoid giving up entirely.</p>
+<p><strong>⭐ Part 1:</strong> Today's puzzle was a tough one, and we're only on day 3! I spent far too much time trying to figure this out and had to walk away and come back multiple times to avoid giving up entirely.</p>
 <p>My first idea was to create a dictionary containing each line with the row index as the key. I then wrote some for loops to search the sides, above, and below numbers. I encountered a lot of issues with indices being out of range (<em>literal</em> edge cases). After a failed first submission, I change strategy: extract a list of numbers from the line first. Then I find the index of each number. I expand the search field from that index to include left, right, above, and below. I also have to figure how to deal with edge cases again. I fail submission yet again.
 </p>
 <p>Turns out there's a problem is with <code>str.find()</code> (have I not learned my lesson in day 1?) I check for duplicates in the number list and work around the issue using <code>str.rfind()</code>. And my submission fails <em>again</em>! Time to step away from the computer and going out for a bit.
 </p>
 <p> I'm back from brunch and a bit more motivated. I've decided to scrap everything and start over, working with numpy this time. I split every character out into a list. This is used to create a numpy array (I've also added a row of padding along all the sides; edge cases no more!). I write a function to create a "window" surrounding each number. Once all the windows are created, I flatten each array and look for any punctuation. Finally succeeded on this one! Though I'm dreading part 2 now.</p>
-<p><strong>Part 2:</strong> At this point in the day. My brain is fried. I try working with my existing code to come up with an easy solution, but it's getting late and I think I've sacrificed enough of my sunday to AOC.</p>
+<p><strong>⭐ Part 2:</strong> At this point in the day. My brain is fried. I try working with my existing code to come up with an easy solution, but it's getting late and I think I've sacrificed enough of my sunday to AOC.</p>
 <p>After several feeble attemps with no tangible results. I go searching in the AOC subreddit for inspration. I find another python solution and cobble it into my module. If the main reason for doing AOC is to learn, I think part of that process is learning to read and implement other people's code as well. You can't always have all the answers! Here's to hoping for a more relaxed Monday puzzle.</p>
+</details>
+
+<details>
+<summary>
+<strong>Day 4</strong>: A lifetime supply of scratchoffs!
+</summary>
+<p></p>
+<p><strong>⭐ Part 1:</strong> I didn't have too much trouble coding today's part 1. A nice change from yesterday. To parse the input data, I split the strings into a dictionary. Each key, value pair has the card as a key and a tuple with 3 items (winners, numbers, point value) as the value.</p>
+<p> I loop over each set of numbers, and then nest another loop to check for the winners. If the difference between the number and the winning value is 0, it's a match and I update the point value accordingly. All that's left now is to sum all the point values from the tuples as I check all the cards. Voilà! Part 1 done.</p>
+<p><strong>⭐ Part 2:</strong> It turns out we win more cards for all winning cards. <em>Great</em>. I increase tuple to include more parameters (5 altogether, adding the match count and number of cards). I run two more loops through the cards: one loop to update matches, and one loop to update copies. This takes a while to run, but is works, so I'll take the win.</p>
+</details>
+
+<details>
+<summary>
+<strong>Day 5</strong>: Reaching my limit (of RAM)
+</summary>
+<p></p>
+<p><strong>⭐ Part 1:</strong> My first idea for this challenge was to create a dictionary with all the mappings for each seed's values. It was fine with the test data, but then I realised the actual input would require way too much memory for this approach. I switched approcahes and did comarisons between the source and destination values to get all the mappings correct. I run my code and earn another star, but it's the only star I'll earn today...</p>
+<p><strong>❌ Part 2:</strong> Did not finish. I reworked my code given the criteria for part 2, and all my tests are passing. Unfortunately my code is very inefficient and running it on the full input data results in a killed script due to memory limits. I'll have to do some more in depth research on this one later, but I'm done for today. Tomorrow is a nother day!</p>
 </details>
 
 <!--
 -- New day template --
 <details>
 <summary>
-<p></p>
 <strong>Day {n}</strong>: {headline}
 </summary>
+<p></p>
 <p><strong>Part 1:</strong></p>
 <p><strong>Part 2:</strong></p>
 </details>
