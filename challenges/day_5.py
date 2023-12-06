@@ -40,28 +40,9 @@ def parse_puzzle_input(puzzle_input):
     map_dict = dict(zip(keys,map_list))
     return (seed_list,map_dict)
 
-# Tried making a dict - input data was way too big.
-# def make_mappings(map_dict):
-#     '''Create a new dictionary for all the almanac mappings
-#     Returns a dict:
-#         - keys are the mapping destination
-#         - values are a dict containing mapping from source values
-#         to destination values'''
-#     map_keys = map_dict.keys()
-#     for key in map_keys:
-#         print(f"Values for {key}:")
-#         for i,line in enumerate(map_dict[key]):
-#             print(f"\nCompiling mapping {i+1}:")
-#             destination = line[0]
-#             source = line[1]
-#             range_len = line[2]
-#             print(f"\tSource start = {source}")
-#             print(f"\tDestination start = {destination}")
-#             print(f"\tRange = {range_len}")
-#             source_list = range(source,source+range_len)
-#             destination_list = range(destination,destination+range_len)
-#         break
-
+def parse_seed_range(lower,seed_range):
+        upper = lower + seed_range
+        return [i for i in range(lower,upper)]
 
 def convert_number(source_number,mapping):
     '''generate an updated number based on the mapping provided
@@ -79,13 +60,29 @@ def convert_number(source_number,mapping):
         else:
             return source_number
 
-def catalogue_seed_data(seed_list, map_dict):
+def catalogue_seed_data(seed_list, map_dict, part_2=False):
     '''Creates a dict for each seed by searching all mappings
     - Key is the seed ID
     - Value is a tuple containing the 7 growing values'''
+    if part_2 == True:
+        loc_list = []
+        for i,seed in enumerate(seed_list):
+            if i % 2 != 0:
+                continue
+            checklist = parse_seed_range(seed,seed_list[i+1])
+            for num in checklist:
+                running_num = num
+                for key in map_dict.keys():
+                    map_list = map_dict[key]
+                    for map in map_list:
+                        new_num = convert_number(running_num,map)
+                        if new_num != running_num:
+                            running_num = new_num
+                            break
+                loc_list.append(running_num)
+        return loc_list
     seed_dict = {}
     for seed in seed_list:
-        print(f"\nCataloguing seed ID {seed}")
         running_num = seed
         grow_vals = []
         for key in map_dict.keys():
@@ -95,11 +92,9 @@ def catalogue_seed_data(seed_list, map_dict):
                 if new_num != running_num:
                     grow_vals.append(new_num)
                     running_num = new_num
-                    print(f"\t{key} value is {running_num}")
                     break
                 if map == map_list[-1]:
                     grow_vals.append(new_num)
-                    print(f"\t{key} value is {running_num}")
         seed_dict[seed] = grow_vals
     return seed_dict
 
@@ -112,11 +107,18 @@ def get_lowest_loc(seed_catalogue):
             lowest_value = seed_catalogue[seed][-1]
     return lowest_value
 
+def get_lowest_loc_part_2(loc_list):
+    return min(loc_list)
+
 def main():
     puzzle_input = retrieve_puzzle_input()
     seeds, maps = parse_puzzle_input(puzzle_input)
     seed_catalogue = catalogue_seed_data(seeds,maps)
-    return get_lowest_loc(seed_catalogue)
+    part_1 = get_lowest_loc(seed_catalogue)
+    print(f"Answer to part 1: {part_1}")
+    loc_list = catalogue_seed_data(seeds, maps, part_2=True)
+    part_2 = get_lowest_loc_part_2(loc_list)
+    print(f"Answer to part 1: {part_2}")
 
 if __name__ == "__main__":
     print(main())

@@ -56,8 +56,6 @@ def test_below_start_mapping():
     result = day_5.convert_number(14,(18, 25, 70))
     assert result == 14
 
-
-
 def test_above_range_mapping():
     # given source number 81 and mapping (0, 11, 42)
     # when converting the soure number
@@ -79,3 +77,20 @@ def test_lowest_loc():
     seed_catalogue = day_5.catalogue_seed_data(test_seeds,test_input_parsed)
     result = day_5.get_lowest_loc(seed_catalogue)
     assert result == 35
+
+# part 2 tests
+def test_lowest_loc_part2():
+    # given the test input above for part 2
+    # when searching the lowest location number
+    # return 46
+    seed_catalogue = day_5.catalogue_seed_data(test_seeds,test_input_parsed, part_2=True)
+    result = day_5.get_lowest_loc_part_2(seed_catalogue)
+    assert result == 46
+
+def test_seed_parsing():
+    # given the inputs 79, 14
+    # when running the function
+    # then return [79, 80, 81 ... 90, 91, 92]
+    result = day_5.parse_seed_range(79,14)
+    assert result[0] == 79
+    assert result[-1] == 92
