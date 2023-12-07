@@ -12,7 +12,7 @@
 
 <details>
 <summary>
-<strong>Day 1</strong>: This isn't so hard... D'oh!
+<strong>Day 1</strong>: This isn't so hard... D'oh! 👨‍💻🙃
 </summary>
 <p></p>
 <p><strong>⭐ Part 1:</strong> Started out strong for part 1 of this puzzle! I coded my tests and functions, then got the right answer on my first attempt. My strategy was to iterate over each string both forwards and backwards simultaneously and record the first encountered number. This worked perfectly. What a great beginning to AOC! I'm sure part 2 will be just as easy, fun, and fulfilling...</p>
@@ -28,7 +28,7 @@
 
 <details>
 <summary>
-<strong>Day 2</strong>: Early morning cubes
+<strong>Day 2</strong>: Early morning cubes 🌅🧊
 </summary>
 <p></p>
 <p><strong>⭐ Part 1:</strong> I'm up early today (like, really early). Early enough to start today's puzzle as soon as it's released. Let's do this! After reading the instructions and peeking at the input data, I breath a sigh of relief. This is looking a bit easier compared to yesterday's wonky-words-number-nonsense. </p>
@@ -40,7 +40,7 @@
 
 <details>
 <summary>
-<strong>Day 3</strong>: Who needs a weekend?
+<strong>Day 3</strong>: Who needs a weekend? 3️⃣1️⃣2️⃣🔍
 </summary>
 <p></p>
 <p><strong>⭐ Part 1:</strong> Today's puzzle was a tough one, and we're only on day 3! I spent far too much time trying to figure this out and had to walk away and come back multiple times to avoid giving up entirely.</p>
@@ -55,7 +55,7 @@
 
 <details>
 <summary>
-<strong>Day 4</strong>: A lifetime supply of scratchoffs!
+<strong>Day 4</strong>: A lifetime supply of scratchoffs! 🎟️🎫🎟️🎫
 </summary>
 <p></p>
 <p><strong>⭐ Part 1:</strong> I didn't have too much trouble coding today's part 1. A nice change from yesterday. To parse the input data, I split the strings into a dictionary. Each key, value pair has the card as a key and a tuple with 3 items (winners, numbers, point value) as the value.</p>
@@ -65,11 +65,23 @@
 
 <details>
 <summary>
-<strong>Day 5</strong>: Reaching my limit (of RAM)
+<strong>Day 5</strong>: Reaching my limit (of RAM) 🌱🤯
 </summary>
 <p></p>
 <p><strong>⭐ Part 1:</strong> My first idea for this challenge was to create a dictionary with all the mappings for each seed's values. It was fine with the test data, but then I realised the actual input would require way too much memory for this approach. I switched approcahes and did comarisons between the source and destination values to get all the mappings correct. I run my code and earn another star, but it's the only star I'll earn today...</p>
-<p><strong>❌ Part 2:</strong> Did not finish. I reworked my code given the criteria for part 2, and all my tests are passing. Unfortunately my code is very inefficient and running it on the full input data results in a killed script due to memory limits. I'll have to do some more in depth research on this one later, but I'm done for today. Tomorrow is a nother day!</p>
+<p><strong>❌ Part 2:</strong> Did not finish. I reworked my code given the criteria for part 2, and all my tests are passing. Unfortunately my code is very inefficient and running it on the full input data results in a killed script due to memory limits. I'll have to do some more in depth research on this one later, but I'm done for now. Tomorrow is another day!</p>
+<p><strong>⭐ Update!</strong> After implementing my day 6 solutions, I came back to my day 5 code to try and figure out a way to get my script to run. It's not pretty (honestly, it's hideous), but now I have a working script that runs... <em>for over 12 hours</em>. I was aware of term "brute force" before this, but now I've experienced it firsthand. This is defintiely the most inefficient thing I've ever coded, but it worked!! Feeling a bit silly for putting my CPU through this, but now I have my second star. </p>
+<p>The upside to this code monstrosity? I've got something I can come back to later on for practice. Some day I will come back to this script and figure out a way to make it run in a reasonable amount of time (<em>is 4 hours too much to ask for!?</em>).</p>
+</details>
+
+<details>
+<summary>
+<strong>Day 6</strong>: A day at the boat races ⛵🏁
+</summary>
+<p></p>
+<p><strong>⭐ Part 1:</strong> Today was a real confidence boost after missing out on part 2 of yesterday. In the test data that there is a range of timings for holding the button that will allow you to win, so I decide to search for the lower and upper bounds of this range with two loops. One searched forwards until it finds the lower limit, and the other searches backwards until it hits the higher limit. Tada! Solution found.</p>
+<p><strong>⭐ Part 2:</strong> So it turns out the input isn't a series of races, but one big number for one race. At this point, I'm feeling really good that I thought to optimise my search function a bit during part 1! I adjust my parsing to make a single number for both the time and race numbers. I run the same search on this big number and get the right result on the first try. I was so excited to implement part 2 that I forgot to even write any tests.</p>
+<p>My part 2 solution does take a few seconds to run, so it's not the most efficient code out there. However, I do think that a week ago I would have written an even more efficient function to solve this problem. This day's puzzle definitely has shown me that I'm improving my coding skills, so I'm going to keep up with AOC as long as I can. Looking forward to day 7 now!</p>
 </details>
 
 <!--

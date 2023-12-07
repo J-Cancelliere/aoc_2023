@@ -41,8 +41,9 @@ def parse_puzzle_input(puzzle_input):
     return (seed_list,map_dict)
 
 def parse_seed_range(lower,seed_range):
-        upper = lower + seed_range
-        return [i for i in range(lower,upper)]
+    print(f"Parsing seeds from {lower} to {seed_range}")
+    seeds = set(range(lower,seed_range,2))
+    return seeds
 
 def convert_number(source_number,mapping):
     '''generate an updated number based on the mapping provided
@@ -64,23 +65,23 @@ def catalogue_seed_data(seed_list, map_dict, part_2=False):
     '''Creates a dict for each seed by searching all mappings
     - Key is the seed ID
     - Value is a tuple containing the 7 growing values'''
-    if part_2 == True:
-        loc_list = []
-        for i,seed in enumerate(seed_list):
-            if i % 2 != 0:
-                continue
-            checklist = parse_seed_range(seed,seed_list[i+1])
-            for num in checklist:
-                running_num = num
-                for key in map_dict.keys():
-                    map_list = map_dict[key]
-                    for map in map_list:
-                        new_num = convert_number(running_num,map)
-                        if new_num != running_num:
-                            running_num = new_num
-                            break
-                loc_list.append(running_num)
-        return loc_list
+    # if part_2 == True:
+    #     loc_list = []
+    #     for i,seed in enumerate(seed_list):
+    #         if i % 2 != 0:
+    #             continue
+    #         checklist = parse_seed_range(seed,seed_list[i+1])
+    #         for num in checklist:
+    #             running_num = num
+    #             for key in map_dict.keys():
+    #                 map_list = map_dict[key]
+    #                 for map in map_list:
+    #                     new_num = convert_number(running_num,map)
+    #                     if new_num != running_num:
+    #                         running_num = new_num
+    #                         break
+    #             loc_list.append(running_num)
+    #     return loc_list
     seed_dict = {}
     for seed in seed_list:
         running_num = seed
@@ -113,12 +114,33 @@ def get_lowest_loc_part_2(loc_list):
 def main():
     puzzle_input = retrieve_puzzle_input()
     seeds, maps = parse_puzzle_input(puzzle_input)
-    seed_catalogue = catalogue_seed_data(seeds,maps)
-    part_1 = get_lowest_loc(seed_catalogue)
-    print(f"Answer to part 1: {part_1}")
-    loc_list = catalogue_seed_data(seeds, maps, part_2=True)
-    part_2 = get_lowest_loc_part_2(loc_list)
-    print(f"Answer to part 1: {part_2}")
+    # seed_catalogue = catalogue_seed_data(seeds,maps)
+    # part_1 = get_lowest_loc(seed_catalogue)
+    # print(f"Answer to part 1: {part_1}")
+    seed_bases = seeds[::2]
+    seed_ranges = seeds[1::2]
+    part_2 = 0
+    for i,seed in enumerate(seed_bases):
+        print(f"Calculating values for seed range {i+1} out of {len(seed_bases)}")
+        total_seeds = seed + seed_ranges[i]
+        print(f"{total_seeds} in this batch")
+        current_base = seed
+        current_max = current_base + 1_000_000
+        print(f"\tStarting from {current_base} to {current_max}")
+        while current_base < total_seeds:
+            seed_set = parse_seed_range(current_base,current_max)
+            seed_dict = catalogue_seed_data(seed_set,maps)
+            batch_min = get_lowest_loc(seed_dict)
+            if part_2 == 0:
+                part_2 = batch_min
+            if batch_min < part_2:
+                part_2 = batch_min
+            current_base += 1_000_000
+            current_max += 1_000_000
+            if current_max > total_seeds:
+                current_max = total_seeds + 1
+            print(f"current lowest value: {part_2}")
+    print(f"Answer to part 2: either {part_2}, {part_2-1}, or {part_2+1}")
 
 if __name__ == "__main__":
     print(main())
