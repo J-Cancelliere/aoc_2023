@@ -30,3 +30,12 @@ def test_sum_all_products():
     test_parsed = day_7.parse_puzzle_input(test_data)
     result = day_7.total_winnings(sorted_hands,test_parsed)
     assert result == 6440
+
+# tests for part 2
+
+def test_new_categorizer():
+    # given a list of cards: 32T3K, T55J5, KK677, KTJJT, QQQJA
+    # when ordering the ranks
+    # return 32T3K, KTJJT, KK677, T55J5, QQQJA
+    result = day_7.sort_hands(["32T3K", "T55J5", "KK677", "KTJJT", "QQQJA"])
+    assert result == ["32T3K", "KK677", "T55J5", "QQQJA", "KTJJT"]
