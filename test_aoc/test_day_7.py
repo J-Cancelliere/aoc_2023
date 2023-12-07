@@ -11,9 +11,9 @@ QQQJA 483"""
 def test_order_of_cards():
     # given a list of cards: 32T3K, T55J5, KK677, KTJJT, QQQJA
     # when ordering the ranks
-    # return QQQJA, T55J5, KK677, KTJJT, 32T3K
+    # return 32T3K, KTJJT, KK677, T55J5, QQQJA
     result = day_7.sort_hands(["32T3K", "T55J5", "KK677", "KTJJT", "QQQJA"])
-    assert result == ["QQQJA", "T55J5", "KK677", "KTJJT", "32T3K"]
+    assert result == ["32T3K", "KTJJT", "KK677", "T55J5", "QQQJA"]
 
 def test_value_of_one_hand():
     # given a hand of cards QQQJA with bet 483 and rank 5
