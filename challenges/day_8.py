@@ -19,6 +19,9 @@ def parse_puzzle_input(puzzle_input):
         nodes_dict[key] = value
     return steps,nodes_dict
 
+def parse_puzzle_input_2(puzzle_input):
+    pass
+
 def calculate_steps(steps,node_dict):
     current_loc = 'AAA'
     step_limit = len(steps)
@@ -38,11 +41,14 @@ def calculate_steps(steps,node_dict):
                 break
     return total_steps
 
+def calculate_steps_2(steps,node_dict,az_lists):
+    pass
+
 def main():
     puzzle_data = retrieve_puzzle_input()
     steps, nodes = parse_puzzle_input(puzzle_data)
     part1 = calculate_steps(steps, nodes)
-    return f"Answer to part 1: {part1}"
+    return f"Answer to part 1: {part1}\nAnswer to part 2:"
 
 if __name__ == '__main__':
     print(main())
