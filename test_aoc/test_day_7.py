@@ -37,5 +37,7 @@ def test_new_categorizer():
     # given a list of cards: 32T3K, T55J5, KK677, KTJJT, QQQJA
     # when ordering the ranks
     # return 32T3K, KTJJT, KK677, T55J5, QQQJA
-    result = day_7.sort_hands(["32T3K", "T55J5", "KK677", "KTJJT", "QQQJA"])
+    sorted_values = day_7.sort_hands(["32T3K", "T55J5", "KK677", "KTJJT", "QQQJA"])
+    sorted_jokers = day_7.find_all_jokers(sorted_values)
+    result = day_7.sort_jokers(sorted_values)
     assert result == ["32T3K", "KK677", "T55J5", "QQQJA", "KTJJT"]

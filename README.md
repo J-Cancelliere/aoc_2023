@@ -55,12 +55,12 @@
 
 <details>
 <summary>
-<strong>Day 4</strong>: A lifetime supply of scratchoffs! 🎟️🎫🎟️🎫
+<strong>Day 4</strong>: A lifetime supply of scratchoffs! 🎟️🎫🎟️
 </summary>
 <p></p>
 <p><strong>⭐ Part 1:</strong> I didn't have too much trouble coding today's part 1. A nice change from yesterday. To parse the input data, I split the strings into a dictionary. Each key, value pair has the card as a key and a tuple with 3 items (winners, numbers, point value) as the value.</p>
 <p> I loop over each set of numbers, and then nest another loop to check for the winners. If the difference between the number and the winning value is 0, it's a match and I update the point value accordingly. All that's left now is to sum all the point values from the tuples as I check all the cards. Voilà! Part 1 done.</p>
-<p><strong>⭐ Part 2:</strong> It turns out we win more cards for all winning cards. <em>Great</em>. I increase tuple to include more parameters (5 altogether, adding the match count and number of cards). I run two more loops through the cards: one loop to update matches, and one loop to update copies. This takes a while to run, but is works, so I'll take the win.</p>
+<p><strong>⭐ Part 2:</strong> It turns out we win more cards for all winning cards. <em>Great</em>. I increase the tuple to include more parameters (5 altogether, adding the match count and number of cards). I run two more loops through the cards: one loop to update matches, and one loop to update copies. This takes a while to run, but is works, so I'll take the win.</p>
 </details>
 
 <details>
@@ -71,7 +71,7 @@
 <p><strong>⭐ Part 1:</strong> My first idea for this challenge was to create a dictionary with all the mappings for each seed's values. It was fine with the test data, but then I realised the actual input would require way too much memory for this approach. I switched approcahes and did comarisons between the source and destination values to get all the mappings correct. I run my code and earn another star, but it's the only star I'll earn today...</p>
 <p><strong>❌ Part 2:</strong> Did not finish. I reworked my code given the criteria for part 2, and all my tests are passing. Unfortunately my code is very inefficient and running it on the full input data results in a killed script due to memory limits. I'll have to do some more in depth research on this one later, but I'm done for now. Tomorrow is another day!</p>
 <p><strong>⭐ Update!</strong> After implementing my day 6 solutions, I came back to my day 5 code to try and figure out a way to get my script to run. It's not pretty (honestly, it's hideous), but now I have a working script that runs... <em>for over 12 hours</em>. I was aware of term "brute force" before this, but now I've experienced it firsthand. This is defintiely the most inefficient thing I've ever coded, but it worked!! Feeling a bit silly for putting my CPU through this, but now I have my second star. </p>
-<p>The upside to this code monstrosity? I've got something I can come back to later on for practice. Some day I will come back to this script and figure out a way to make it run in a reasonable amount of time (<em>is 4 hours too much to ask for!?</em>).</p>
+<p>The upside to this code monstrosity? I've got something I can come back to later on as a little project. Some day I will come back to this script and figure out a way to make it run in a reasonable amount of time (<em>is 4 hours too much to ask for!?</em>).</p>
 </details>
 
 <details>
@@ -81,7 +81,18 @@
 <p></p>
 <p><strong>⭐ Part 1:</strong> Today was a real confidence boost after missing out on part 2 of yesterday. In the test data that there is a range of timings for holding the button that will allow you to win, so I decide to search for the lower and upper bounds of this range with two loops. One searched forwards until it finds the lower limit, and the other searches backwards until it hits the higher limit. Tada! Solution found.</p>
 <p><strong>⭐ Part 2:</strong> So it turns out the input isn't a series of races, but one big number for one race. At this point, I'm feeling really good that I thought to optimise my search function a bit during part 1! I adjust my parsing to make a single number for both the time and race numbers. I run the same search on this big number and get the right result on the first try. I was so excited to implement part 2 that I forgot to even write any tests.</p>
-<p>My part 2 solution does take a few seconds to run, so it's not the most efficient code out there. However, I do think that a week ago I would have written an even more efficient function to solve this problem. This day's puzzle definitely has shown me that I'm improving my coding skills, so I'm going to keep up with AOC as long as I can. Looking forward to day 7 now!</p>
+<p>My part 2 solution does take a few seconds to run, so it's not the most efficient code. However, I think that a week ago I would have written a much more inefficient function to solve this problem. This day's puzzle definitely has shown me that I'm improving my coding skills, so I'm going to keep up with AOC as long as I can. Looking forward to day 7 now!</p>
+</details>
+
+<details>
+<summary>
+<strong>Day 7</strong>: More card games ♣️ ♦️ ♠️ ♥️
+</summary>
+<p></p>
+<p><strong>⭐ Part 1:</strong> Today's puzzle was an interesting one, and I learned a lot of great things. The toughest part of this one was figuring out what type of hand each set of cards was. After lots of <code>if</code> conditions in my first function, I coded a quicksort algorithm and applied it to each batch of types. After that, it was just a matter of looking up the bet value to multiply by my list order.</p>
+<p><strong>❌ Part 2:</strong> I got a late start on these challenges today, so by the time I was trying to sort out the switch from "Jack" to "Joker", I was already sleepy. I tried modifying my original functions to work in the same way, but my first submitted answer was too high. I decided to give myself a break and whent to bed.</p>
+<p><strong>⭐ The next morning</strong>: With a fresh set of eyes, I set about figuring out part 2. I decided to switch up my original function to return a dictionary for hand types instead of the sorted list. This let me create a new funtion that identifies all "J" characters and then recategorises them into the correct types. Then I resort the lists, concatenate then, and apply my winnings calculation again. Success! Now time for breakfast.</p></p>
+<p>One peculiar thing about this solution is that my unit tests are mostly failing now (oops). This AOC is one of the first times I've written my own unit tests, so I suppose it's expected that I won't write perfect tests all the time. I may come back to these tests at some point to rework them to learn how I could have written them better.</p>
 </details>
 
 <!--
