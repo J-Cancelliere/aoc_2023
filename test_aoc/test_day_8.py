@@ -22,7 +22,7 @@ def test_calculation():
     # when counting steps
     # return 6
     result1, result2 = day_8.parse_puzzle_input(test_input)
-    result = day_8.calculate_steps(result1,result2)
+    result = day_8.calculate_steps(result1,result2,"AAA","ZZZ")
     assert result == 6
 
 # part 2 tests

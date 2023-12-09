@@ -95,6 +95,16 @@
 <p>One peculiar thing about this solution is that my unit tests are mostly failing now (oops). This AOC is one of the first times I've written my own unit tests, so I suppose it's expected that I won't write perfect tests all the time. I may come back to these tests at some point to rework them to learn how I could have written them better.</p>
 </details>
 
+<details>
+<summary>
+<strong>Day 8</strong>: Lost in the haunted desert 🏜️🐪👻
+</summary>
+<p></p>
+<p><strong>⭐ Part 1:</strong> This was a fairly straightforward looping solution. I got stuck for a bit on my step_limit variable when I set it too short, making infinite loop. I just kept watching my loop spin and spin for about 5 minutes before I figured out which part wasn't working. Otherwise, I implemented my solution pretty quickly.</p>
+<p><strong>⭐ Part 2:</strong>If iterating worked for part 1, it would be the same for part 2, right? I write a new <code>while</code> loop to iterate over all the paths at once and let it run. Then the script just kept runnnig. After doing some research, I came across the least common multiple approach and decided to implement this while my iterative script kept running.</p>
+<p>The biggest challenge of this approach was finding the paths, since there are multiple starts and multiple fininshes. I add a timeout condition to my original step counting function so when I try all the combinations, if there's an infinite loop for any of them, it stops after 1 second. After implementing this solution I have my answer, and the number is much higher than my slow scipt ever got. <em>They say if you listen closely, you can still hear that other script iterating on and on forever...</em></p>
+</details>
+
 <!--
 -- New day template --
 <details>
