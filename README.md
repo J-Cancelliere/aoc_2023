@@ -101,8 +101,19 @@
 </summary>
 <p></p>
 <p><strong>⭐ Part 1:</strong> This was a fairly straightforward looping solution. I got stuck for a bit on my step_limit variable when I set it too short, making infinite loop. I just kept watching my loop spin and spin for about 5 minutes before I figured out which part wasn't working. Otherwise, I implemented my solution pretty quickly.</p>
-<p><strong>⭐ Part 2:</strong>If iterating worked for part 1, it would be the same for part 2, right? I write a new <code>while</code> loop to iterate over all the paths at once and let it run. Then the script just kept runnnig. After doing some research, I came across the least common multiple approach and decided to implement this while my iterative script kept running.</p>
+<p><strong>⭐ Part 2:</strong> If iterating worked for part 1, it would be the same for part 2, right? I write a new <code>while</code> loop to iterate over all the paths at once and let it run. Then the script just kept runnnig. After doing some research, I came across the least common multiple approach and decided to implement this while my iterative script kept running.</p>
 <p>The biggest challenge of this approach was finding the paths, since there are multiple starts and multiple fininshes. I add a timeout condition to my original step counting function so when I try all the combinations, if there's an infinite loop for any of them, it stops after 1 second. After implementing this solution I have my answer, and the number is much higher than my slow scipt ever got. <em>They say if you listen closely, you can still hear that other script iterating on and on forever...</em></p>
+</details>
+
+<details>
+<summary>
+<strong>Day 9</strong>: Patterns in the Oasis 🏝️🔢🥥
+</summary>
+<p></p>
+<p><strong>⭐ Part 1:</strong> I kept reading over the week in different AOC threads and communities that the weekend puzzles are more difficult than weekday puzzles, so I was anticipating the worst for today. Turns out it wasn't that bad, though! This was an interesting problem to code, and I only got tripped up on one thing in part 1. After submitting a number that was too high, I couldn't tell what the issue was for a while. Then I realised my <code>while</code> loop condition wasn't quite right.</p>
+<p>You're supposed to stop iterating when you reach a list that's all zeros, so I was checking for the sum of each iteration's list. This works fine as long as all the numbers are positive. Finally I realised that with negative numbers in the main puzzle input, you could end up with an iteration like <code>[0, -1, 1, 0]</code>, which would add up to zero. This was breaking my loop early and giving me a slightly off result. Once I fixed that, I had the right solution! Then I braced myself for part 2...</p>
+<p><strong>⭐ Part 2:</strong> Turns out part 2 is <em>almost</em> the same problem as part 1, just backwards. I code a second function to work in the opposite direction, recyling a lot of code from my first one. I switch additions to subtractions, end indices to front indices, et cetera. I implement a working solution easily enough.</p>
+<p>After finishing my puzzle for the day, I head over to the AOC subreddit to see how others have solved the puzzle. I notice some comments about reversing the <em>input</em> instead of the function. This is such a great idea and I wish I thought of it! I'll definitely be coming back to this day's solution at some point to refine my code.</p>
 </details>
 
 <!--

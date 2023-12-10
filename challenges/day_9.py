@@ -4,6 +4,8 @@ def retreive_puzzle_input():
     puzzle = Puzzle(year=2023, day=9)
     return puzzle.input_data
 
+# TODO: Refactor this function with an option to return the parsed input
+# in reverse, eliminating the need for the previous_number function
 def parse_input(puzzle_input):
     lines = []
     for line in puzzle_input.split("\n"):
