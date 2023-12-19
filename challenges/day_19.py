@@ -77,6 +77,8 @@ def accept_or_reject(workflows,part):
                         wf_key = test[-1]
                         break
 
+def find_permutations(workflows):
+    pass
 
 def p1_final_sum(accepted_list):
     total = 0

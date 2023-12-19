@@ -71,3 +71,13 @@ def test_final_sum():
     ]
     result = day_19.p1_final_sum(part_list)
     assert result == 19114
+
+# part 2 tests
+
+def test_find_permutations():
+    # given the test_data1
+    # When calcualting the total possible accepted,
+    # return 167409079868000
+    workflows = day_19.parse_workflows(test_input1)
+    result = day_19.find_permutations(workflows)
+    assert result == 167409079868000
