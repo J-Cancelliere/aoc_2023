@@ -143,7 +143,6 @@
 <p><strong>Part 2:</strong></p>
 </details>
 
-
 <details>
 <summary>
 <strong>Day 13 ❌ ❌</strong>
@@ -152,7 +151,6 @@
 <p><strong>Part 1:</strong></p>
 <p><strong>Part 2:</strong></p>
 </details>
-
 
 <details>
 <summary>
@@ -163,7 +161,6 @@
 <p><strong>Part 2:</strong></p>
 </details>
 
-
 <details>
 <summary>
 <strong>Day 15 ❌ ❌</strong>
@@ -172,7 +169,6 @@
 <p><strong>Part 1:</strong></p>
 <p><strong>Part 2:</strong></p>
 </details>
-
 
 <details>
 <summary>
@@ -183,10 +179,18 @@
 <p><strong>Part 2:</strong></p>
 </details>
 
-
 <details>
 <summary>
 <strong>Day 17 ❌ ❌</strong>
+</summary>
+<p></p>
+<p><strong>Part 1:</strong></p>
+<p><strong>Part 2:</strong></p>
+</details>
+
+<details>
+<summary>
+<strong>Day 18 ❌ ❌</strong>
 </summary>
 <p></p>
 <p><strong>Part 1:</strong></p>
