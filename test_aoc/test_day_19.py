@@ -25,12 +25,12 @@ def test_workflow_parser():
     # when parsing the data
     # return a dict with workflows as keys, and workflows as a list of tuples.
     result = day_19.parse_workflows(test_input1)
-    assert result.keys()[0] == "px"
+    assert list(result.keys())[0] == "px"
     assert result["px"][0][0] == "a"
     assert result["px"][0][1] == "<"
-    assert result["px"][0][2] == "2006"
+    assert result["px"][0][2] == 2006
     assert result["px"][0][3] == "qkq"
-    assert result["px"][-1] == "rfg"
+    assert result["px"][-1] == ("rfg",)
 
 def test_parts_parser():
     # given test_input1
@@ -40,6 +40,7 @@ def test_parts_parser():
     assert result[0].get("x") == 787
     assert result[2].get("a") == 79
     assert result[-1].get("s") == 1013
+    assert len(result[0]) == 4
 
 def test_accept():
     # given the first part dict test_data2 and workflows
