@@ -203,7 +203,7 @@
 </summary>
 <p></p>
 <p><strong>Part 1:</strong> I finally found some time to get back to AOC this month (it's the calm before the Christmas storm of in-laws arriving later this week!). Today's first half of the challenge isn't too bad. Lots of parts and pieces to parse in the workflows, but I think I've written good tests and my code works on my first try. My main process was build two dictionaries (workflows and parts), so I could easily go through the sorting process for each part. Glad I haven't given up on the challenge just yet after a week's absence! We'll see if I can keep things going after today.</p>
-<p><strong>Part 2:</strong></p>
+<p><strong>Part 2:</strong> After a busy day f work, I'm too tired to code this solution today. I have a good idea of how to calculate the total possible part combinations using the numbers products, so hopefully I'll come back to this one another day.</p>
 </details>
 
 <!--

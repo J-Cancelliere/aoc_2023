@@ -78,6 +78,10 @@ def accept_or_reject(workflows,part):
                         break
 
 def find_permutations(workflows):
+    start_values = {"x":4000,"m":4000,"a":4000,"s":4000}
+    A = {"x":0,"m":0,"a":0,"s":0}
+    R = {"x":0,"m":0,"a":0,"s":0}
+    wf_key = "in"
     pass
 
 def p1_final_sum(accepted_list):
